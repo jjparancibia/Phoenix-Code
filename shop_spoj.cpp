@@ -8,10 +8,8 @@
 using namespace std;
 vector< vector<char> > shop;
 vector< vector<int> > times;
-int val;
 void find(int x, int y)
 {
-	val++;
 	if(y+1 < shop[0].size() && shop[x][y+1] != 'X')
 		if(times[x][y+1] > times[x][y] + shop[x][y+1] - 48)
 		{
@@ -59,7 +57,6 @@ int main()
 		shop[i_d][j_d] = '0';
 		find(i_s,j_s);
 		cout << times[i_d][j_d] << endl;
-		cout << val << endl;
 		shop.clear();
 		times.clear();
 	}
