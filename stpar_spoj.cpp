@@ -1,5 +1,6 @@
+//
 //http://www.spoj.com/problems/STPAR/
-
+//
 #include<iostream>
 #include<vector>
 #include<stack>
