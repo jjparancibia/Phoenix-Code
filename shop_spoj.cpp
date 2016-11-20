@@ -1,3 +1,5 @@
+//http://www.spoj.com/problems/SHOP/
+
 #include<iostream>
 #include<vector>
 #include<climits>
