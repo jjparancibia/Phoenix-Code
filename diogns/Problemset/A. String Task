@@ -1,1 +1,19 @@
+// http://codeforces.com/problemset/problem/118/A
 
+#include <iostream>
+#include <cctype>
+using namespace std;
+int main()
+{
+	string T;
+	cin>>T;
+	string I;
+	for(int i=0;i<T.size();i++)
+	{
+		T[i]=tolower(T[i]);
+		if(T[i] !='a' && T[i] !='e' && T[i] !='i'
+		 && T[i] !='o' &&T[i] !='u' && T[i] !='y')
+		 cout<<"."<<T[i];
+	}
+	return 0;
+}
