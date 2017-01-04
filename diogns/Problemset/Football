@@ -1,0 +1,26 @@
+http://codeforces.com/problemset/problem/96/A
+#include <iostream>
+using namespace std;
+bool string_matching(string T,string P)
+{
+    int n=T.size(),m=P.size();
+    for(int s=0;s<=(n-m);s++)
+    {	
+    int i=0;
+    while(i<m && T[s+i]==P[i]) i++;
+    if(i==m) return true;       
+    }
+    return false;
+}
+
+int main()
+{
+    string T; 
+    string a="1111111",b="0000000";
+    cin>>T;
+    if(string_matching(T,a) || string_matching(T,b))
+    cout<<"YES"<<endl;
+    else
+    cout<<"NO"<<endl;
+return 0;
+}
