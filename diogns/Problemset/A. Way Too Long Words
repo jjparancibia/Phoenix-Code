@@ -1,0 +1,22 @@
+// http://codeforces.com/problemset/problem/71/A
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+	int n;
+	cin>>n;
+	vector <string> T(n);
+	for(int i;i<n;i++)
+	cin>>T[i];
+	
+	for(unsigned int i=0;i<T.size();i++)
+	{
+	 if(T[i].size()>10)
+	 	cout<<T[i][0]<<T[i].size() - 2 <<T[i][T[i].size() - 1]<<endl;
+	else
+	 	cout<<T[i]<<endl;
+	 }
+	return 0;
+}
