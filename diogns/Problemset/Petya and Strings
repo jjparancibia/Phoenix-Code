@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cctype>
+using namespace std;
+int main()
+{
+	string T,A;
+	
+	cin>>T>>A;
+	
+	for(int i=0;i<T.size();i++)
+	{
+		
+		
+		T[i]=tolower(T[i]);
+		A[i]=tolower(A[i]);
+	if(T[i]>A[i] )
+	{
+	cout<<"1"<<endl;
+	return 0;
+}
+	if(T[i]<A[i])
+	{
+	cout<<"-1";
+		return 0;
+}
+	}
+	
+	if(T[T.size()-1]==A[A.size()-1])
+	cout<<"0";
+	
+return 0;
+}
