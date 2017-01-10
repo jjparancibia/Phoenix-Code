@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+int main() {
+    vector <int> m;
+    int value;
+    int contador=0;
+    for(int n=0;n<5;n++)
+    {
+        cin>>value;
+        m.push_back(value);
+    }
+    for(int n=1;n<=m[4];n++)
+    {
+        if(n%m[0]==0||n%m[1]==0||n%m[2]==0||n%m[3]==0)
+            contador++;
+    }
+    cout<<contador;
+    return 0;
+}
