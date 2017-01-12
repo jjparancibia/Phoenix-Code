@@ -1,12 +1,12 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-void merge_vector(int l, int p, int h, vector<int> v)
+void merge_vector(int l, int p, int h, vector<int> &v)
 {
-    for(int i = p+1, key = i-1 ; i < h+1; i++)
+    for(int i = p+1 ; i < h+1; i++)
     {
-        int temp = v[i];
-        while(v[key]>temp)
+        int key = i-1, temp = v[i];
+        while(v[key]>temp && key>=l)
         {
             v[key+1] = v[key];
             key--;
@@ -14,7 +14,7 @@ void merge_vector(int l, int p, int h, vector<int> v)
         v[key+1] = temp;
     }
 }
-void merge_sort(int low, int high, vector<int> v)
+void merge_sort(int low, int high, vector<int> &v)
 {
     if(low<high)
     {
@@ -35,3 +35,4 @@ int main()
         cout << values[i] << "\t";
     return 0;
 }
+
