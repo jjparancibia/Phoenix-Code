@@ -31,5 +31,7 @@ int main()
     for(int i = 0 ; i < N ; i++)
         cin >> values[i];
     merge_sort(0,N-1,values);
+    for(int i = 0 ; i < N ; i++)
+        cout << values[i] << "\t";
     return 0;
 }
