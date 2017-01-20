@@ -1,0 +1,65 @@
+http://codeforces.com/problemset/problem/750/B
+#include <iostream>
+#include <vector>
+
+using namespace std;
+int main()
+{
+int n; cin>>n;
+vector < pair<int,string> > v(n+1);
+for(int i;i<n;i++)
+{
+	cin>>v[i].first;
+	cin>>v[i].second;
+}
+v[n].second="South";
+if (v[0].second!="South")
+{ cout<<"NO";
+return 0;
+}
+int suma=0;
+for(int i=0;i<n;i++)
+{
+	if(v[i].second=="North")
+	suma=suma-v[i].first;
+	if(v[i].second=="South")
+	{
+	 suma=suma+v[i].first;
+	 if(v[i].first>20000)
+	 { cout<<"NO";
+	   return 0;
+	 }
+    }
+	if(suma==20000 && v[i+1].second!="North")
+	{
+	cout<<"NO";
+	return 0;
+	}
+	if(suma==0 && v[i+1].second!="South")
+	{
+		cout<<"NO";
+		return 0;
+	}
+	if(v[i+1].second=="South")
+	{
+		if(v[i+1].first>20000-suma)
+		{
+			cout<<"NO";
+			return 0;
+		}
+	}
+	if(v[i+1].second=="North")
+	{
+		if(v[i+1].first>suma)
+		{
+			cout<<"NO";
+			return 0;
+		}
+	}
+}
+if(suma==0)
+cout<<"YES";
+else
+cout<<"NO";
+return 0;
+}
