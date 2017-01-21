@@ -1,0 +1,62 @@
+http://codeforces.com/contest/758/problem/B
+
+#include <iostream>
+#include <vector>
+using namespace std;
+ int main()
+ {
+ 	string s,p="!!!!";
+ 	vector <int > v(4);
+ 	cin>>s;
+ 	
+ 	
+ 	for(int i=0;i<4;i++)
+ 	v[i]=0;
+
+	for(int i=0;i<s.size();i++)
+ 	{
+ 		if(s[i]!='!')
+ 		p[i%4]=s[i];
+ 		
+ 		if(s[i]=='!')
+ 		{
+ 			if(i%4==0)
+ 			v[0]++;
+ 			if(i%4==1)
+ 			v[1]++;
+ 			if(i%4==2)
+ 			v[2]++;
+ 			if(i%4==3)
+ 			v[3]++;
+		 }
+	}
+	
+
+	for(int i=0;i<4;i++)
+	{
+		if(p[i]=='R')
+		cout<<v[i]<<" ";
+	}
+	
+	for(int i=0;i<4;i++)
+	{
+		if(p[i]=='B')
+		cout<<v[i]<<" ";
+	}
+	
+	for(int i=0;i<4;i++)
+	{
+		if(p[i]=='Y')
+		cout<<v[i]<<" ";
+	}
+	
+	for(int i=0;i<4;i++)
+	{
+		if(p[i]=='G')
+		cout<<v[i]<<" ";
+	}
+
+	
+	
+ 	return 0;
+ }
