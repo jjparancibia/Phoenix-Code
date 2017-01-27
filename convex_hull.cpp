@@ -12,13 +12,11 @@ bool relation(pair<pair<double,double>,double> i , pair<pair<double,double>,doub
 void convex(vector< pair< pair<double,double>,double> > &p)
 {
     for(unsigned int i = 1 ; i < p.size() ; i++)
-    {
         if(((p[i].first.first-p[i-1].first.first)*(p[i+1].first.second-p[i].first.second)-(p[i].first.second-p[i-1].first.second)*(p[i+1].first.first-p[i].first.first)) < 0)
         {
             p.erase(p.begin()+i);
             i--;
         }
-    }
 }
 
 int main()
