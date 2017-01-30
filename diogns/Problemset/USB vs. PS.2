@@ -1,0 +1,60 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <utility>
+using namespace std;
+bool r (pair <int ,string> i , pair <int ,string> j)
+{
+	return i.first<j.first; 
+}
+
+int main()
+{
+	int a,b,c;
+	cin>>a>>b>>c;
+	int n;
+	cin>>n;
+	
+	vector < pair< int , string > > v(n); 
+	for(int i=0;i<n;i++)
+	{
+	cin>>v[i].first>>v[i].second;
+	}
+	
+	sort(v.begin(),v.end(),r);
+
+
+	int cont1=0;
+	long long sum1=0;
+	
+	for(int i=0;i<n;i++)
+	{
+		if(v[i].second=="USB" && a>0)
+		{
+			sum1=sum1+v[i].first;
+			cont1++;
+			a--;
+		}
+		else
+		if(v[i].second=="PS/2" && b>0)
+		{
+			sum1=sum1+v[i].first;
+			cont1++;
+			b--;
+		}
+		else
+		if(0<c)
+		{
+			sum1=sum1+v[i].first;
+			cont1++;
+			c--;
+		}
+	}
+
+	
+	
+	cout<<cont1<<" "<<sum1;
+
+	return 0;
+}
+
