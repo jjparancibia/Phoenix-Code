@@ -1,0 +1,72 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+bool ordenar (pair <int ,long double> i,pair <int ,long double> j) 
+{ 
+    return (i.second<j.second); 
+}
+bool ordenar_1 (pair <pair < int, int > , long double > i,pair <pair < int, int > , long double > j) 
+{ 
+    return (i.second<j.second); 
+}
+long double angvec(pair<int,int> x,pair<int,int> y)
+{
+	long double c;
+	long double a1=x.first,a2=x.second,b1=y.first,b2=y.second; //Es necesario usar esto para dar mayor precision a la funcion acos
+	c=acos((a1*b1+a2*b2)/(sqrt(pow(a1,2)+pow(a2,2))*sqrt(pow(b1,2)+pow(b2,2))));
+	return c;
+}
+
+int main(){
+	int n;
+	int x,y;
+	long double pi=acos(-1.0L);
+	vector <pair <int , int > > v;
+	vector < pair <int ,long double > > b;
+	vector < pair <pair < int, int > , long double > > minim;
+	cin>>n;
+	for(int i=0;i<n;i++)
+	{	cin>>x;cin>>y;
+		v.push_back(make_pair(x,y)); 
+	} 
+	
+	long double a;
+	for(unsigned int i=0;i<v.size();i++)
+	{
+		if(v[i].second>=0 )
+	    {
+	        a=angvec(v[i],make_pair(1,0));
+	        b.push_back(make_pair(i,a));	        
+	    }
+
+		if(v[i].second<0 )
+		{
+	        a= pi*2- angvec(v[i],make_pair(1,0)) ;
+	        b.push_back(make_pair(i,a));
+		}
+	    
+		
+	}
+
+
+    
+	sort(b.begin(),b.end(),ordenar);
+
+	for(unsigned int i=0;i<b.size()-1;i++)
+	{
+		if(b[i+1].second-b[i].second<=pi)
+	    minim.push_back(make_pair(make_pair( b[i+1].first , b[i].first)  ,  b[i+1].second -b[i].second  ));
+	    else
+	    minim.push_back(make_pair(make_pair( b[i+1].first , b[i].first)  ,  2*pi +b[i].second -b[i+1].second  ));
+	}
+	
+    minim.push_back(make_pair(make_pair( b[n-1].first , b[0].first) ,  2*pi +b[0].second - b[n-1].second));   
+    
+    sort(minim.begin(),minim.end(),ordenar_1);
+    
+    cout<<minim[0].first.second+1<<" "<<minim[0].first.first+1;
+    
+return 0;
+}
